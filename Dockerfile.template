@@ -19,9 +19,12 @@ RUN chmod 700 "/home/${USERNAME}/.ssh"
 RUN chmod 600 "/home/${USERNAME}/.ssh/authorized_keys"
 
 # allow sudo without a password
-RUN mkdir -p /etc/sudoers.d/
-RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME}
-RUN chmod 0440 /etc/sudoers.d/${USERNAME}
+RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+
+# this approach will not work if a username has a . in it
+#RUN mkdir -p /etc/sudoers.d/
+#RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME}
+#RUN chmod 0440 /etc/sudoers.d/${USERNAME}
 
 RUN service ssh start
 

@@ -105,10 +105,13 @@ def resolve_port(args: Namespace) -> bool:
         port_list = [int(k) for k in ports.keys()] + [default_port]
         args.port = (max(*port_list) if len(port_list) > 1 else default_port) + 1
     if args.port in ports:
-        print("Port already in use")
-        return False
+        if ports[args.port] == args.username:
+            print("Port already in use by this user")
+            return "in_use_by_user"
+        else:
+            return "in_use_by_another"
     ports[args.port] = args.username
-    return True
+    return "not_in_use"
 
 
 ####################################################################################################
@@ -118,7 +121,9 @@ def resolve_port(args: Namespace) -> bool:
 
 def main():
     args = parse_arguments()
-    assert resolve_port(args)
+    port_status = resolve_port(args)
+    if port_status == "in_use_by_another":
+        raise ValueError("Port already in use by another user")
 
     # make the directory  ###########################################
     dir_key = f"{args.username}_{args.port}".replace(" ", "_")
@@ -130,6 +135,10 @@ def main():
                 print("Doing nothing, exiting.")
                 return
             if decision.lower() in ("y", "yes"):
+                try:
+                    check_call([str(storage_dir / dir_key / "stop_container.sh")])
+                except Exception:
+                    pass
                 rmtree(storage_dir / dir_key)
                 break
     os.mkdir(storage_dir / dir_key)
