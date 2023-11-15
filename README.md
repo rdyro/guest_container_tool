@@ -1,5 +1,12 @@
 # Persistent Guest Container Tool
 
+This tool allows you to create a persistent guest container on a server: you can
+create a (docker) container for a temporary user that can be accessed via SSH on
+a random or selected port.
+
+This basic tool allows you to give others access to your computational resources
+inside an isolated container, without access to your server or other containers.
+
 # Quickstart
 
 On the server
