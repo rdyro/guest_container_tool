@@ -1,0 +1,6 @@
+{
+  "username": "rdyro",
+  "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC1tj3nZEnRFNQWYYwsowFrwH6VK8NkZk0KdxzfwN5+GDBWYMUQJJU+OqqHsHGo/pMWrCIKAlmjRWbEUi+RkQQy4KhP5t4BjOuJZ+JMWNUay7yx65NPgH8Nsj1asDuSPXJaIFBzXPzUTJ8zoZEhuEIiHRRTHhPtf6dzOh/g2SFUZkgnWbkdliSg+c5XwsqNFM2TyXKJkoQKl9rTeMbMuG9bz/zbWhkTIN/Z8Iw+6GxGipVWZOaM0y/Z5zmGaVU+XhNOlBgghhqKl9rjgOMyOLe8rpWo4mnPaJIudll0+pfCcn+AaAKH00o+7JzwxaHwUOPjKrJmHnSJ/HUd1O4k1gJlZdT49Ya9mNAZZtiQGbrJJrGj7ovWU1NMcGCtrX2rmeU9BCtNKev3g8dVk0fnU7Yot343ugVAL+i8fYiIhMxkvmZI9MVR4ACvNt7VYAjGnBFKo98myKVaRtBDifA+Pq5BcXbs9A4qRxZgzLTLyvco1qEGkZHCRLiqIZo2TiU0G3W0MhwP6lB5a1w0ErgZ2i9RAmVuW7xuinAbWzWsRW1ynvsBK2bKeQp3+qkOrBp2fPHaJx1u8YqcXJ5B68zaJTRpBA+Q0TocXridJDyBtQzRv2/Oh1E21BqRxTh+HwhpyzfUbeKElxtJo3GAM63RROSrhuGfap13z8mJYKHm8spX6Q== rdyro@VivoRD",
+  "gpus": "",
+  "container_name": "ubuntu"
+}

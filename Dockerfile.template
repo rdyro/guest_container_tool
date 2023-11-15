@@ -1,0 +1,28 @@
+ARG CONTAINER_VERSION
+
+#FROM nvcr.io/nvidia/pytorch:23.10-py3
+FROM ${CONTAINER_VERSION}
+
+ARG USERNAME
+
+RUN apt update
+RUN apt install -y vim curl wget openssh-server nvtop sudo
+RUN useradd -rm -d /home/${USERNAME} -s /bin/bash -g root -G sudo -u 1000 ${USERNAME}
+
+RUN echo "PasswordAuthentication no" >> /etc/ssh/sshd_config
+RUN echo ${USERNAME}:${USERNAME} | chpasswd
+
+RUN mkdir -p /home/${USERNAME}/.ssh
+COPY ./authorized_keys /home/${USERNAME}/.ssh/authorized_keys
+RUN chown -R ${USERNAME} "/home/${USERNAME}/.ssh"
+RUN chmod 700 "/home/${USERNAME}/.ssh"
+RUN chmod 600 "/home/${USERNAME}/.ssh/authorized_keys"
+
+# allow sudo without a password
+RUN mkdir -p /etc/sudoers.d/
+RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${USERNAME}
+RUN chmod 0440 /etc/sudoers.d/${USERNAME}
+
+RUN service ssh start
+
+CMD ["/usr/sbin/sshd", "-D"]
