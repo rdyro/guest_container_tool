@@ -11,7 +11,6 @@ inside an isolated container, without access to your server or other containers.
 
 On the server
 ```bash
-$ # pip install sqlitedict # if not yet installed
 $ python3 guest_container_tool.py --help
 $ python3 guest_container_tool.py -u rdyro -k "$(cat ~/.ssh/id_rsa.pub)" -c ubuntu -p 2222
 $ ssh -p 2222 rdyro@localhost # you're now in the container

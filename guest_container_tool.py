@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
 
-from argparse import ArgumentParser, Namespace
-from shutil import copyfile, rmtree
 import json
-from pathlib import Path
 import os
+import re
+from argparse import ArgumentParser, Namespace
+from hashlib import sha512
+from pathlib import Path
+from shutil import copyfile, rmtree
+from socket import gethostname
 from subprocess import check_call
-
-from sqlitedict import SqliteDict
 
 ROOT_DIR = Path(__file__).parent.absolute()
 
-DEFUALT_CONFIG = {}
+# the base port is a 10 digit wide default starting port for containers
+# it's based on the first 8 bytes (modulo 1000) of the sha512 hash of the hostname
+BASE_PORT = (
+    int.from_bytes(sha512(gethostname().encode("utf-8")).digest()[:8], "little") % 1000
+) * 10 + 32000
 
 
 def parse_arguments():
@@ -99,18 +104,26 @@ def parse_arguments():
 
 
 def resolve_port(args: Namespace) -> bool:
-    ports = SqliteDict("users.sqlite", autocommit=True)
+    # ports = SqliteDict("users.sqlite", autocommit=True)
+    all_ports = dict(
+        [
+            list(re.match(r"(.*?)_(\d+)$", fname).groups())[::-1]
+            for fname in os.listdir(ROOT_DIR / "connections")
+            if re.match(r"(.*?)_\d+$", fname) is not None
+        ]
+    )
+    all_ports = {int(k): v for (k, v) in all_ports.items()}
     if args.port < 0:
-        default_port = 32777
-        port_list = [int(k) for k in ports.keys()] + [default_port]
-        args.port = (max(*port_list) if len(port_list) > 1 else default_port) + 1
-    if args.port in ports:
-        if ports[args.port] == args.username:
+        port_list = list(all_ports.keys()) + [BASE_PORT]
+        # port_list = [int(k) for k in ports.keys()] + [default_port]
+        args.port = (max(*port_list) if len(port_list) > 1 else BASE_PORT) + 1
+    if args.port in all_ports:
+        if all_ports[args.port] == args.username:
             print("Port already in use by this user")
             return "in_use_by_user"
         else:
             return "in_use_by_another"
-    ports[args.port] = args.username
+    # ports[args.port] = args.username
     return "not_in_use"
 
 
@@ -151,7 +164,9 @@ def main():
     # ssh screen for reverse port forwarding ######################
     Path(storage_dir / dir_key / ".ssh_reverse_tunnel.sh").write_text(
         f"""#!/usr/bin/env bash
+while true; do
 ssh -N -R 0.0.0.0:{args.port}:localhost:{args.port} {args.reverse_proxy_host}
+done
         """
     )
     check_call(["chmod", "+x", storage_dir / dir_key / ".ssh_reverse_tunnel.sh"])
