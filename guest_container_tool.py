@@ -162,14 +162,15 @@ def main():
     gpu_spec = "" if args.gpus == "" else f"--gpus {args.gpus}"
 
     # ssh screen for reverse port forwarding ######################
-    Path(storage_dir / dir_key / "ssh_reverse_tunnel.sh").write_text(
-        f"""#!/usr/bin/env bash
+    if args.reverse_proxy_host != "":
+        Path(storage_dir / dir_key / "ssh_reverse_tunnel.sh").write_text(
+            f"""#!/usr/bin/env bash
 while true; do
 ssh -o ExitOnForwardFailure=yes -N -R 0.0.0.0:{args.port}:localhost:{args.port} {args.reverse_proxy_host}
 done
-        """
-    )
-    check_call(["chmod", "+x", storage_dir / dir_key / "ssh_reverse_tunnel.sh"])
+            """
+        )
+        check_call(["chmod", "+x", storage_dir / dir_key / "ssh_reverse_tunnel.sh"])
 
     # run container script ########################################
     Path(storage_dir / dir_key / "start_container.sh").write_text(
@@ -201,7 +202,7 @@ echo "Container stopped"
             "--build-arg",
             f"USERNAME={args.username}",
             "--build-arg",
-            f"CONTAINER_VERSION={args.container_name}",
+            f"CONTAINER_VERSION={args.container_image}",
             "-t",
             dir_key,
             ".",
