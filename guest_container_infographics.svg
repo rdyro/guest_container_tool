@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="76.774338mm"
+   height="85.755394mm"
+   viewBox="0 0 76.774338 85.755394"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.3 (1:1.3+202307231459+0e150ed6c4)"
+   sodipodi:docname="guest_container_infographics.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="1.4815911"
+     inkscape:cx="138.02729"
+     inkscape:cy="172.78722"
+     inkscape:window-width="2560"
+     inkscape:window-height="1376"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-91.159128,-74.850115)">
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.799999;stroke-linejoin:round;stroke-miterlimit:19.6"
+       id="rect1"
+       width="75.974342"
+       height="84.955399"
+       x="91.559128"
+       y="75.250114" />
+    <rect
+       style="fill:#67e467;fill-opacity:1;stroke:#000000;stroke-width:0.799999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:4.79999, 1.6;stroke-dashoffset:0"
+       id="rect2"
+       width="28.81443"
+       height="46.622726"
+       x="96.423897"
+       y="108.7902" />
+    <rect
+       style="fill:#67e467;fill-opacity:0.999935;stroke:#000000;stroke-width:0.799999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:3.2, 1.6;stroke-dashoffset:0"
+       id="rect2-5"
+       width="28.81443"
+       height="46.622726"
+       x="133.85426"
+       y="108.7902" />
+    <rect
+       style="fill:#ff3030;fill-opacity:0.811693;stroke:#000000;stroke-width:0.862652;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:5.17591, 1.7253;stroke-dashoffset:0"
+       id="rect3"
+       width="66.216187"
+       height="23.590397"
+       x="96.452515"
+       y="81.138008" />
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';text-align:center;text-anchor:middle;fill:#ffffff;stroke:#000000;stroke-width:0.799999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0"
+       x="111.12411"
+       y="133.85719"
+       id="text5"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.8;stroke-dasharray:none"
+         x="111.12411"
+         y="133.85719">GPU 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';text-align:center;text-anchor:middle;fill:#ffffff;stroke:#000000;stroke-width:0.799999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0"
+       x="148.55449"
+       y="133.85719"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.8;stroke-dasharray:none"
+         x="148.55449"
+         y="133.85719">GPU 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';text-align:center;text-anchor:middle;fill:#ffffff;stroke:#000000;stroke-width:0.799999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0"
+       x="129.50755"
+       y="94.688828"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.8;stroke-dasharray:none"
+         x="129.50755"
+         y="94.688828">CPU</tspan></text>
+    <g
+       id="g9"
+       transform="translate(-29.044693,5.3799198)">
+      <rect
+         style="fill:#008ac1;fill-opacity:0.643888;stroke:#000000;stroke-width:0.936001;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.953111"
+         id="rect9"
+         width="14.559757"
+         height="27.493988"
+         x="179.41212"
+         y="91.129341" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.9389px;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';text-align:center;text-anchor:middle;fill:#ffffff;stroke:#000000;stroke-width:0.799999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0"
+         x="191.52716"
+         y="-88.540749"
+         id="text9"
+         transform="rotate(53.288564)"><tspan
+           sodipodi:role="line"
+           id="tspan9"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.8;stroke-dasharray:none"
+           x="191.52716"
+           y="-88.540749">Guest 1</tspan></text>
+    </g>
+    <g
+       id="g10"
+       transform="translate(-46.96064,5.2220291)">
+      <rect
+         style="fill:#008ac1;fill-opacity:0.643888;stroke:#000000;stroke-width:0.936001;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.953111"
+         id="rect10"
+         width="14.559757"
+         height="27.493988"
+         x="179.41212"
+         y="91.129341" />
+      <text
+         xml:space="preserve"
+         style="font-size:4.9389px;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';text-align:center;text-anchor:middle;fill:#ffffff;stroke:#000000;stroke-width:0.799999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0"
+         x="191.52716"
+         y="-88.540749"
+         id="text10"
+         transform="rotate(53.288564)"><tspan
+           sodipodi:role="line"
+           id="tspan10"
+           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.8;stroke-dasharray:none"
+           x="191.52716"
+           y="-88.540749">Guest 2</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:2.46945px;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';text-align:center;text-anchor:middle;fill:#ffffff;stroke:#000000;stroke-width:0.399999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0"
+       x="139.7963"
+       y="119.99438"
+       id="text11"><tspan
+         sodipodi:role="line"
+         id="tspan11"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4;stroke-dasharray:none"
+         x="139.7963"
+         y="119.99438">SSH</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4;stroke-dasharray:none"
+         x="139.7963"
+         y="122.46383"
+         id="tspan12">PORT 32712</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.46945px;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';text-align:center;text-anchor:middle;fill:#ffffff;stroke:#000000;stroke-width:0.399999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0"
+       x="157.60692"
+       y="120.41982"
+       id="text11-0"><tspan
+         sodipodi:role="line"
+         id="tspan11-9"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4;stroke-dasharray:none"
+         x="157.60692"
+         y="120.41982">SSH</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4;stroke-dasharray:none"
+         x="157.60692"
+         y="122.88927"
+         id="tspan12-3">PORT 32717</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:2.46945px;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';text-align:center;text-anchor:middle;fill:#ffffff;stroke:#000000;stroke-width:0.399999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0"
+       x="160.35765"
+       y="77.823776"
+       id="text14"><tspan
+         sodipodi:role="line"
+         id="tspan13"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4;stroke-dasharray:none"
+         x="160.35765"
+         y="77.823776">SSH</tspan><tspan
+         sodipodi:role="line"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.4;stroke-dasharray:none"
+         x="160.35765"
+         y="80.293228"
+         id="tspan14">PORT  22</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.9389px;line-height:1;font-family:'Roboto Condensed';-inkscape-font-specification:'Roboto Condensed, ';text-align:center;text-anchor:middle;fill:#ffffff;stroke:#000000;stroke-width:0.799999;stroke-linejoin:round;stroke-miterlimit:19.6;stroke-dasharray:none;stroke-dashoffset:0"
+       x="101.24397"
+       y="79.93631"
+       id="text15"><tspan
+         sodipodi:role="line"
+         id="tspan15"
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.8;stroke-dasharray:none"
+         x="101.24397"
+         y="79.93631">Your PC</tspan></text>
+  </g>
+</svg>

@@ -1,5 +1,10 @@
 # Persistent Guest Container Tool
 
+
+<p align="center">
+  <img src="guest_container_infographic.png" style="width:50%;max-width:500px"/>
+</p>
+
 This tool allows you to create a persistent guest container on a server: you can
 create a (docker) container for a temporary user that can be accessed via SSH on
 a random or selected port.
