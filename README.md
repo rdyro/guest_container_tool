@@ -2,7 +2,7 @@
 
 
 <p align="center">
-  <img src="guest_container_infographic.png" style="width:50%;max-width:500px"/>
+  <img src="infographic.png" style="width:50%;max-width:500px"/>
 </p>
 
 This tool allows you to create a persistent guest container on a server: you can
@@ -36,28 +36,31 @@ $ newgrp docker
 ## Help and usage
 
 ```bash
-usage: tool.py [-h] [-u USERNAME] [-p PORT] [-k PUBLIC_KEY] [-c CONTAINER_NAME] [-g GPUS] [-n]
-               [-H REVERSE_PROXY_HOST] [--config CONFIG]
-               [--extra-docker-run-args EXTRA_DOCKER_RUN_ARGS]
+usage: guest_container_tool.py [-h] [-u USERNAME] [-p PORT] [-k PUBLIC_KEY_STR]
+                               [-c CONTAINER_IMAGE] [-g GPUS] [-n]
+                               [-H REVERSE_PROXY_HOST] [--config CONFIG]
+                               [--extra-docker-run-args EXTRA_DOCKER_RUN_ARGS]
 
 options:
   -h, --help            show this help message and exit
   -u USERNAME, --username USERNAME
                         username
   -p PORT, --port PORT  port
-  -k PUBLIC_KEY, --public-key PUBLIC_KEY
+  -k PUBLIC_KEY_STR, --public-key-str PUBLIC_KEY_STR
                         Public RSA key as a string
-  -c CONTAINER_NAME, --container-name CONTAINER_NAME
-                        Container name
+  -c CONTAINER_IMAGE, --container-image CONTAINER_IMAGE
+                        Container image name (e.g., from docker hub
+                        `ubuntu:latest`)
   -g GPUS, --gpus GPUS  Whether and what GPUs to pass to docker
   -n, --dry-run         Dry run, do not run the container.
   -H REVERSE_PROXY_HOST, --reverse-proxy-host REVERSE_PROXY_HOST
-                        (Optionally) Host to use for reverse proxy. If complicated, use
-                        ~/.ssh/config to set up a host alias.
-  --config CONFIG       Path to a JSON config file as an alternative to command line arguments.
+                        (Optionally) Host to use for reverse proxy. If
+                        complicated, use ~/.ssh/config to set up a host alias.
+  --config CONFIG       Path to a JSON config file as an alternative to command
+                        line arguments.
   --extra-docker-run-args EXTRA_DOCKER_RUN_ARGS
-                        Extra arguments to pass to docker run -- when creating the persistent
-                        container.
+                        Extra arguments to pass to docker run -- when creating the
+                        persistent container.
 ```
 
 ## Using a JSON config file instead
@@ -69,7 +72,7 @@ file that mirrors the command line arguments.
 ```
 {
   "username": "rdyro",
-  "public_key": "ssh-rsa ...",
+  "public_key_str": "ssh-rsa ...",
   "container_name": "ubuntu"
 }
 

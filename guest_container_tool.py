@@ -24,13 +24,13 @@ def parse_arguments():
     parser.add_argument("-u", "--username", type=str, help="username", default="")
     parser.add_argument("-p", "--port", type=int, help="port", default=-1)
     parser.add_argument(
-        "-k", "--public-key", type=str, help="Public RSA key as a string", default=""
+        "-k", "--public-key-str", type=str, help="Public RSA key as a string", default=""
     )
     parser.add_argument(
         "-c",
-        "--container-name",
+        "--container-image",
         type=str,
-        help="Container name",
+        help="Container image name (e.g., from docker hub `ubuntu:latest`)",
         default="nvcr.io/nvidia/pytorch:23.10-py3",
     )
     parser.add_argument(
@@ -73,15 +73,15 @@ def parse_arguments():
         if "port" in config:
             args.port = int(config["port"])
         # the public key
-        if "public_key" in config:
-            args.public_key = config["public_key"]
-        if "public-key" in config:
-            args.public_key = config["public-key"]
+        if "public_key_str" in config:
+            args.public_key_str = config["public_key_str"]
+        if "public-key-str" in config:
+            args.public_key_str = config["public-key-str"]
         # container name
-        if "container_name" in config:
-            args.container_name = config["container_name"]
-        if "container-name" in config:
-            args.container_name = config["container-name"]
+        if "container_image" in config:
+            args.container_image = config["container_image"]
+        if "container-image" in config:
+            args.container_image = config["container-image"]
         # gpus flag
         if "gpus" in config:
             args.gpus = config["gpus"]
@@ -99,7 +99,7 @@ def parse_arguments():
         if "extra-docker-run-args" in config:
             args.extra_docker_run_args = config["extra-docker-run-args"]
     assert args.username != "", "Username must be specified"
-    assert args.public_key != "", "Public key must be specified"
+    assert args.public_key_str != "", "Public key string must be specified"
     return args
 
 
@@ -158,29 +158,29 @@ def main():
     copyfile(ROOT_DIR / "Dockerfile.template", storage_dir / dir_key / "Dockerfile")
 
     os.chdir(storage_dir / dir_key)
-    Path(storage_dir / dir_key / "authorized_keys").write_text(args.public_key)
+    Path(storage_dir / dir_key / "authorized_keys").write_text(args.public_key_str)
     gpu_spec = "" if args.gpus == "" else f"--gpus {args.gpus}"
 
     # ssh screen for reverse port forwarding ######################
-    Path(storage_dir / dir_key / ".ssh_reverse_tunnel.sh").write_text(
+    Path(storage_dir / dir_key / "ssh_reverse_tunnel.sh").write_text(
         f"""#!/usr/bin/env bash
 while true; do
-ssh -N -R 0.0.0.0:{args.port}:localhost:{args.port} {args.reverse_proxy_host}
+ssh -o ExitOnForwardFailure=yes -N -R 0.0.0.0:{args.port}:localhost:{args.port} {args.reverse_proxy_host}
 done
         """
     )
-    check_call(["chmod", "+x", storage_dir / dir_key / ".ssh_reverse_tunnel.sh"])
+    check_call(["chmod", "+x", storage_dir / dir_key / "ssh_reverse_tunnel.sh"])
 
     # run container script ########################################
-    Path(storage_dir / dir_key / "run_container.sh").write_text(
+    Path(storage_dir / dir_key / "start_container.sh").write_text(
         f"""#!/usr/bin/env bash
 docker run -d -p {args.port}:22 {gpu_spec} {args.extra_docker_run_args} --name {dir_key} {dir_key} || docker restart {dir_key}
 [[ "{args.reverse_proxy_host}" != "" ]] && ssh {args.reverse_proxy_host} 'ufw allow {args.port}/tcp'
-[[ "{args.reverse_proxy_host}" != "" ]] && screen -S {dir_key}_port_forward -d -m ./.ssh_reverse_tunnel.sh
+[[ "{args.reverse_proxy_host}" != "" ]] && screen -S {dir_key}_port_forward -d -m ./ssh_reverse_tunnel.sh
 echo "Container started"
         """
     )
-    check_call(["chmod", "+x", storage_dir / dir_key / "run_container.sh"])
+    check_call(["chmod", "+x", storage_dir / dir_key / "start_container.sh"])
 
     # stop container script #######################################
     Path(storage_dir / dir_key / "stop_container.sh").write_text(
@@ -208,7 +208,7 @@ echo "Container stopped"
         ]
     )
     if not args.dry_run:
-        check_call(["./run_container.sh"])
+        check_call(["./start_container.sh"])
     print()
     print()
     print(f"Created a container for user {args.username} on port {args.port}")
