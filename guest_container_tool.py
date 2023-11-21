@@ -173,9 +173,11 @@ done
         check_call(["chmod", "+x", storage_dir / dir_key / "ssh_reverse_tunnel.sh"])
 
     # run container script ########################################
+    # allows computational processes to work well with multiprocessing
+    extra_memory_spec = "--ipc=host --ulimit memlock=-1 --ulimit stack=67108864"
     Path(storage_dir / dir_key / "start_container.sh").write_text(
         f"""#!/usr/bin/env bash
-docker run -d -p {args.port}:22 {gpu_spec} {args.extra_docker_run_args} --name {dir_key} {dir_key} || docker restart {dir_key}
+docker run -d {extra_memory_spec} -p {args.port}:22 {gpu_spec} {args.extra_docker_run_args} --name {dir_key} {dir_key} || docker restart {dir_key}
 [[ "{args.reverse_proxy_host}" != "" ]] && ssh {args.reverse_proxy_host} 'ufw allow {args.port}/tcp'
 [[ "{args.reverse_proxy_host}" != "" ]] && screen -S {dir_key}_port_forward -d -m ./ssh_reverse_tunnel.sh
 echo "Container started"
